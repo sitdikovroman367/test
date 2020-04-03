@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+    <form id="main-form" action="/" method="post">
+        <label for="fio">ФИО</label>
+        <input type="text" name="fio" id="fio"><br>
+        <span id="fio-error" style="color: red"></span>
+        <br>
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email">
+        <span id="email-error" style="color: red"></span>
+        <div id="select-towm-block">
+            <select class="select-term" data-ter-level-id="1">
+                <option></option>
+                {% for obl in obl_arr %}
+                <option value="{{ obl.ter_id}}">{{ obl.ter_name|e }}</option>
+                {% endfor %}
+            </select>
+            <span style="color: red" id="error-ter-levelId-1"></span>
+        </div>
+
+        <input type="submit" value="Register" name="reg_submit">
+    </form>
+{% endblock %}

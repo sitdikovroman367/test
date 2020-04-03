@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %} View User #{{user.id}}{% endblock %}
+
+{% block body %}
+    <div>{{user.fio}}</div>
+    <div>{{user.email}}</div>
+    <div>
+    {% for reg in pathTowm %}
+       / {{ reg.ter_name|e }}
+    {% endfor %}
+    </div>
+{% endblock %}
